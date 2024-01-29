@@ -1,7 +1,19 @@
 <!-- Change title page -->
-<?php $title = "Sing in";?>
+<?php $title = "Sing up";?>
 
-<?php require("components/head.components.php") ?>
+<?php require("components/php/head.components.php") ?>
+
+    <!-- Success alert -->
+    <div class="absolute w-full -translate-y-[10rem] transition-all ease-in-out duration-300" id="alertSuccess">
+        <div class="bg-slate-800 backdrop-blur-xl z-20 max-w-sm absolute right-5 top-5 rounded-lg py-3 px-4 flex gap-3 border border-green-600 justify-center items-center" style="box-shadow: 0px 0px 5px 0px blue">
+            <div class="rounded-l-lg flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-green-600 fill-current" viewBox="0 0 16 16" width="20" height="20"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+            </div>
+            <span id="text-success" class="text-slate-200 font-medium">Copy Successfully </span>
+            <svg class="w-[18px] text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg>
+        </div>
+    </div>
+
 
     <div class="dark:bg-slate-800 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -30,12 +42,12 @@
                         <label for="user_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">You id</label>
 
                         <div class="flex flex-row-reverse divide-x">
-                            <span class="hover:cursor-pointer active:bg-slate-700 inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-lg border-gray-300 rounded-s-0 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-200 ">
+                            <span class="hover:cursor-pointer active:bg-slate-700 inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-lg border-green-500 rounded-s-0 dark:bg-gray-600 dark:text-gray-400 dark:border-green-500" id="copyUserId">
                                 <svg class="w-[18px] h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M7 4V2H17V4H20.0066C20.5552 4 21 4.44495 21 4.9934V21.0066C21 21.5552 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5551 3 21.0066V4.9934C3 4.44476 3.44495 4 3.9934 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 4V6H15V4H9Z"></path>
                                 </svg>
                             </span>
-                            <input disabled id="user_id" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Flowbite" required>
+                            <input disabled id="user_id" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="User id" required>
                         </div>
                     </div>
 
@@ -69,13 +81,22 @@
                 <!-- input password -->
                 <div class="mb-6">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <div class="relative mb-6">
+                    <div class="flex relative mb-6 items-center divide-x ">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 8V7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7V8H20C20.5523 8 21 8.44772 21 9V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V9C3 8.44772 3.44772 8 4 8H6ZM19 10H5V20H19V10ZM11 15.7324C10.4022 15.3866 10 14.7403 10 14C10 12.8954 10.8954 12 12 12C13.1046 12 14 12.8954 14 14C14 14.7403 13.5978 15.3866 13 15.7324V18H11V15.7324ZM8 8H16V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8Z"></path>
                             </svg>
                         </div>
-                        <input type="password" id="password" class="ps-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
+                        <input type="password" id="password" class="border ps-10 bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
+
+                        <div class="right-0 absolute">
+                            <button id="btn_password" type="button" class=" dark:bg-gray-700 hover:cursor-pointer active:bg-slate-700 inline-flex items-center p-[10.1px] text-sm text-gray-900 rounded-e-lg rounded-s-0 dark:text-gray-400 dark:border-gray-200" id="copyUserId">
+                                <svg class="w-[18px] h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+
                     </div>
                 </div>
 
@@ -132,45 +153,20 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hideLabel = document.querySelector('.hideLabel');
-            const fileInput = document.getElementById('dropzone-file');
-            const imagePreview = document.getElementById('image-preview');
+    <!-- script upload image -->
+    <script src="components/js/signup/UploadImage.js"></script>
 
-            fileInput.addEventListener('change', function() {
-                const selectedFile = fileInput.files[0];
+    <!-- script Unique Id And Pase and Copy -->
+    <script src="components/js/signup/UniqueAndPS.js"></script>
 
-                if (selectedFile) {
-                    const reader = new FileReader();
+    <!-- script alert success -->
+    <script src="components/js/signup/AlertSuccess.js"></script>
 
-                    reader.onload = function(e) {
-                        imagePreview.src = e.target.result;
-                    };
+    <!-- script hide and show password -->
+    <script src="components/js/signup/HideAndShowPass.js"></script>
 
-                    reader.readAsDataURL(selectedFile);
-
-                    // Show the image preview
-                    imagePreview.classList.remove('hidden');
-                    hideLabel.classList.add('hidden');
-                } else {
-                    // If no file is selected, hide the image preview
-                    imagePreview.classList.add('hidden');
-                }
-            });
-
-            imagePreview.addEventListener('click', function() {
-                // Trigger click on the hidden file input to open the file selection dialog
-                fileInput.click();
-            });
-
-            // Create unique id
-            const userIdInput = document.getElementById('user_id');
-            const uniqueId = `${Date.now()}${Math.floor(Math.random() * 1000)}`;
-            userIdInput.value = uniqueId;
-        });
-    </script>
+    <!-- script validate input -->
+    <script src="components/js/signup/ValidationInput.js"></script>
 
 
-
-<?php require("components/footer.components.php") ?>
+<?php require("components/php/footer.components.php") ?>

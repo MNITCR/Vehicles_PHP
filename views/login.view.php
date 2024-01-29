@@ -1,7 +1,7 @@
 <!-- Change title page -->
 <?php $title = "Sing in";?>
 
-<?php require("components/head.components.php") ?>
+<?php require("components/php/head.components.php") ?>
 
     <div class="dark:bg-slate-800 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 h-[100vh]">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -16,7 +16,7 @@
                 <div>
                     <label for="name" class="dark:text-white block text-sm font-medium leading-6 text-gray-900">Full name</label>
                     <div class="mt-2">
-                        <input id="name" name="name" type="text" required class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        <input id="name" name="name" type="text" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         value="<?php if(isset($_COOKIE["user_login"])) { echo $_COOKIE["user_login"]; } ?>">
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div>
                     <label for="password" class="dark:text-white block text-sm font-medium leading-6 text-gray-900">Password</label>
                     <div class="mt-2">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         value="<?php if(isset($_COOKIE["userpassword"])) { echo $_COOKIE["userpassword"]; } ?>">
                     </div>
                 </div>
@@ -79,13 +79,6 @@
     </div>
 
 
-    <script>
-        const dropdownButton = document.getElementById('dropdownDefaultButton');
-        const dropdownMenu = document.getElementById('dropdown');
+    <script src="components/js/login/DropDownScan.js"></script>
 
-        dropdownButton.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('hidden');
-        });
-    </script>
-
-<?php require("components/footer.components.php") ?>
+<?php require("components/php/footer.components.php") ?>
