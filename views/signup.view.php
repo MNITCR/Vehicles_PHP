@@ -4,7 +4,7 @@
 <?php require("components/php/head.components.php") ?>
 
     <!-- Success alert -->
-    <div class="absolute w-full -translate-y-[10rem] transition-all ease-in-out duration-300" id="alertSuccess">
+    <div id="formSuccessAlert" class="sticky top-0 absolute w-full -translate-y-[10rem] transition-all ease-in-out duration-300 z-50" id="alertSuccess">
         <div class="bg-slate-800 backdrop-blur-xl z-20 max-w-sm absolute right-5 top-5 rounded-lg py-3 px-4 flex gap-3 border border-green-600 justify-center items-center" style="box-shadow: 0px 0px 5px 0px blue">
             <div class="rounded-l-lg flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="text-green-600 fill-current" viewBox="0 0 16 16" width="20" height="20"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-
+    <!-- form sign up -->
     <div class="dark:bg-slate-800 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
@@ -29,12 +29,22 @@
                     <div>
                         <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
                         <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required>
+
+                        <!-- Message Error -->
+                        <p id="Message_Error_FirstName" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                            <span class="font-medium">Oh, snapp!</span> Can't insert 0-9, @#$%*& .
+                        </p>
                     </div>
 
                     <!-- input last name -->
                     <div>
                         <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last name</label>
                         <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required>
+
+                        <!-- Message Error -->
+                        <p id="Message_Error_LastName" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                            <span class="font-medium">Oh, snapp!</span> Can't insert 0-9, @#$%*& .
+                        </p>
                     </div>
 
                     <!-- user id -->
@@ -49,12 +59,13 @@
                             </span>
                             <input disabled id="user_id" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="User id" required>
                         </div>
+
                     </div>
 
                     <!-- input phone number -->
-                    <div>
+                    <div class="mb-6">
                         <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
-                        <div class="relative mb-6">
+                        <div class="relative">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                 <svg class="w-[18px] text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
@@ -62,26 +73,36 @@
                             </div>
                             <input type="tel" id="phone" class="ps-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
                         </div>
+
+                        <!-- Message Error -->
+                        <p id="Message_Error_PhoneNumber" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                            <span class="font-medium">Oh, snapp!</span> Can't insert A-Z, @#$%*& .
+                        </p>
                     </div>
                 </div>
 
                 <!-- input email -->
                 <div class="mb-6">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-                    <div class="relative mb-6">
+                    <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <svg class="w-[18px] text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M22 13H20V7.23792L12.0718 14.338L4 7.21594V19H14V21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V13ZM4.51146 5L12.0619 11.662L19.501 5H4.51146ZM21 18H24V20H21V23H19V20H16V18H19V15H21V18Z"></path>
-                                </svg>
+                            </svg>
                         </div>
                         <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ps-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
                     </div>
+
+                    <!-- Message Error -->
+                    <p id="Message_Error_Email" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Can't out of gmail, outlook, yahoo .
+                    </p>
                 </div>
 
                 <!-- input password -->
                 <div class="mb-6">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <div class="flex relative mb-6 items-center divide-x ">
+                    <div class="flex relative items-center divide-x ">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 8V7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7V8H20C20.5523 8 21 8.44772 21 9V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V9C3 8.44772 3.44772 8 4 8H6ZM19 10H5V20H19V10ZM11 15.7324C10.4022 15.3866 10 14.7403 10 14C10 12.8954 10.8954 12 12 12C13.1046 12 14 12.8954 14 14C14 14.7403 13.5978 15.3866 13 15.7324V18H11V15.7324ZM8 8H16V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8Z"></path>
@@ -96,14 +117,18 @@
                                 </svg>
                             </button>
                         </div>
-
                     </div>
+
+                    <!-- Message Error -->
+                    <p id="Message_Error_Password" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Can't without uppercase , number , special .
+                    </p>
                 </div>
 
                 <!-- input confirm password -->
                 <div class="mb-6">
                     <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                    <div class="relative mb-6">
+                    <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 8V7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7V8H20C20.5523 8 21 8.44772 21 9V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V9C3 8.44772 3.44772 8 4 8H6ZM19 10H5V20H19V10ZM11 15.7324C10.4022 15.3866 10 14.7403 10 14C10 12.8954 10.8954 12 12 12C13.1046 12 14 12.8954 14 14C14 14.7403 13.5978 15.3866 13 15.7324V18H11V15.7324ZM8 8H16V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8Z"></path>
@@ -111,6 +136,11 @@
                         </div>
                         <input type="password" id="confirm_password" class="ps-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
                     </div>
+
+                    <!-- Message Error -->
+                    <p id="Message_Error_ConfirmPassword" class="hidden mt-2 text-sm text-red-600 dark:text-red-500">
+                        <span class="font-medium">Oh, snapp!</span> Passwords are not the same .
+                    </p>
                 </div>
 
                 <!-- Input File Image -->
@@ -141,7 +171,7 @@
                 </div>
 
                 <!-- button sing up -->
-                <button type="submit" name="submit_signup" class="text-white bg-indigo-600 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Sign up</button>
+                <button type="submit" name="submit_signup" id="submit_signup" class="text-white bg-indigo-600 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Sign up</button>
             </form>
 
 
@@ -157,7 +187,7 @@
     <script src="components/js/signup/UploadImage.js"></script>
 
     <!-- script Unique Id And Pase and Copy -->
-    <script src="components/js/signup/UniqueAndPS.js"></script>
+    <script src="components/js/signup/UniqueAndPC.js"></script>
 
     <!-- script alert success -->
     <script src="components/js/signup/AlertSuccess.js"></script>
@@ -166,7 +196,6 @@
     <script src="components/js/signup/HideAndShowPass.js"></script>
 
     <!-- script validate input -->
-    <script src="components/js/signup/ValidationInput.js"></script>
-
+    <script src="components/js/signup/ValidationInput.js" type="text/javascript" defer></script>
 
 <?php require("components/php/footer.components.php") ?>

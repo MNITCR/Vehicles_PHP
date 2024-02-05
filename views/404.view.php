@@ -1,4 +1,4 @@
-<?php require("components/head.components.php") ?>
+<?php require("components/php/head.components.php") ?>
 
     <section class="bg-white dark:bg-gray-800">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 flex h-[100vh] justify-center items-center">
@@ -11,4 +11,4 @@
         </div>
     </section>
 
-<?php require("components/footer.components.php") ?>
+<?php require("components/php/footer.components.php") ?>

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     // Create unique id
     const userIdInput = document.getElementById('user_id');
     const uniqueId = `${Date.now()}${Math.floor(Math.random() * 1000)}`;
@@ -23,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 showSuccessAlert();
             });
         } else {
-            // Fallback for browsers that do not support Clipboard API or on mobile devices
-            // document.execCommand('copy');
 
             // Dynamically create an input for manual paste on mobile devices
             if (isMobileDevice) {

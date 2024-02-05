@@ -1,4 +1,4 @@
-const successAlert = document.getElementById('alertSuccess');
+const successAlert = document.getElementById('formSuccessAlert');
 
 function showSuccessAlert() {
     successAlert.classList.remove('-translate-y-[10rem]');
